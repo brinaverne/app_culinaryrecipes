@@ -1,6 +1,7 @@
 package com.example.livrodereceita
 
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,6 +15,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.findViewTreeViewModelStoreOwner
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -30,7 +32,7 @@ class ListadeReceitas : AppCompatActivity() {
             this.autor = "Karen Bachini"})
         listareceita.add(Receita().apply { this.titulo = "insulina"
             this.autor = "Karen Bachini"})
-        val ReceitaAdapter = ReceitaAdapter(this, listareceita)
+        val ReceitaAdapter = ReceitaAdapter(this,this.baseContext, listareceita)
         val linearLayoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         var RecyclerReceita: RecyclerView = findViewById(R.id.lista)
         RecyclerReceita.layoutManager = linearLayoutManager
@@ -80,18 +82,45 @@ class ListadeReceitas : AppCompatActivity() {
 
     }
 }
-class ReceitaAdapter(private val context: Context, ReceitaArray: ArrayList<Receita>) :
+class ReceitaAdapter(private val activity: ListadeReceitas, private val context: Context, private val lista: ArrayList<Receita>) :
     RecyclerView.Adapter<ReceitaAdapter.ViewHolder>() {
-    var lista = ReceitaArray
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReceitaAdapter.ViewHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.cardview_lista_receita, parent, false)
         return ViewHolder(view)
     }
+    
 
     override fun onBindViewHolder(holder: ReceitaAdapter.ViewHolder, position: Int) {
         val model: Receita = lista[position]
         holder.titulo.setText(model.titulo)
         holder.autor.setText("Autor: " + model.autor)
+        holder.card.setOnClickListener {
+            activity.startActivity (Intent(context, Add_receita::class.java))
+        }
+        holder.card.setOnLongClickListener(object : View.OnLongClickListener {
+            override fun onLongClick(v: View?): Boolean {
+                var dgl = AlertDialog.Builder(activity, R.style.Theme_LivroDeReceita)
+                .setMessage("Tem certeza que deseja deletar?")
+                .setPositiveButton("Sim", object: DialogInterface.OnClickListener{
+                    override fun onClick(dialog: DialogInterface?, which: Int) {
+
+                    }
+
+                })
+                .setNegativeButton("Não", object: DialogInterface.OnClickListener{
+                        override fun onClick(dialog: DialogInterface?, which: Int) {
+                        dialog?.dismiss()
+                        }
+
+                    })
+                .create()
+                dgl.show()
+                return true
+            }
+
+        })
+
 
     }
 
@@ -102,9 +131,11 @@ class ReceitaAdapter(private val context: Context, ReceitaArray: ArrayList<Recei
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         public val titulo: TextView
         public val autor: TextView
+        public val card: CardView
         init {
             titulo = itemView.findViewById(R.id.tituloreceita)
             autor = itemView.findViewById(R.id.autorreceita)
+            card = itemView.findViewById(R.id.cardview)
         }
 
     }
