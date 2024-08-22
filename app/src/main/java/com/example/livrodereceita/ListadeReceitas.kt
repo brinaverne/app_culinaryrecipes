@@ -9,7 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.Switch
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.cardview.widget.CardView
+import androidx.lifecycle.findViewTreeViewModelStoreOwner
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -31,11 +36,48 @@ class ListadeReceitas : AppCompatActivity() {
         RecyclerReceita.layoutManager = linearLayoutManager
         RecyclerReceita.adapter = ReceitaAdapter
 
-        var btnaddlista: FloatingActionButton = findViewById(R.id.btnaddlista)
-        btnaddlista.setOnClickListener {
+        var btnshow: FloatingActionButton = findViewById(R.id.btnshow)
+        var btncadlista: FloatingActionButton = findViewById(R.id.btncadlista)
+        var btnaltlista: FloatingActionButton = findViewById(R.id.btnaltlista)
+        var btndellista: FloatingActionButton = findViewById(R.id.btndellista)
+
+        btnaltlista.visibility = View.INVISIBLE
+        btncadlista.visibility = View.INVISIBLE
+        btndellista.visibility = View.INVISIBLE
+        var count: Int = 0
+        btnshow.setOnClickListener {
+            count++
+
+            if (count % 2 == 0){
+                btnaltlista.visibility = View.INVISIBLE
+                btncadlista.visibility = View.INVISIBLE
+                btndellista.visibility = View.INVISIBLE
+            }
+            else{
+
+                btnaltlista.visibility = View.VISIBLE
+                btncadlista.visibility = View.VISIBLE
+                btndellista.visibility = View.VISIBLE
+            }
+        }
+
+        btncadlista.setOnClickListener {
             var passatela = Intent(this, Add_receita::class.java)
             startActivity(passatela)
+
         }
+        btnaltlista.setOnClickListener {
+            var passatela = Intent(this, Add_receita::class.java)
+            startActivity(passatela)
+
+        }
+        btndellista.setOnClickListener {
+            var passatela = Intent(this, Add_receita::class.java)
+            startActivity(passatela)
+
+        }
+        
+
     }
 }
 class ReceitaAdapter(private val context: Context, ReceitaArray: ArrayList<Receita>) :
@@ -50,6 +92,7 @@ class ReceitaAdapter(private val context: Context, ReceitaArray: ArrayList<Recei
         val model: Receita = lista[position]
         holder.titulo.setText(model.titulo)
         holder.autor.setText("Autor: " + model.autor)
+
     }
 
     override fun getItemCount(): Int {
@@ -63,5 +106,6 @@ class ReceitaAdapter(private val context: Context, ReceitaArray: ArrayList<Recei
             titulo = itemView.findViewById(R.id.tituloreceita)
             autor = itemView.findViewById(R.id.autorreceita)
         }
+
     }
 }
