@@ -22,21 +22,25 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ListadeReceitas : AppCompatActivity() {
+    var RecyclerReceita: RecyclerView? = null
+    var listareceita = arrayListOf<Receita>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_listade_receitas)
-        var listareceita: ArrayList<Receita> = arrayListOf<Receita>()
-        listareceita.add(Receita().apply { this.titulo = "banana"
-        this.autor = "Karen Bachini"})
-        listareceita.add(Receita().apply { this.titulo = "chocolate"
-            this.autor = "Karen Bachini"})
-        listareceita.add(Receita().apply { this.titulo = "insulina"
-            this.autor = "Karen Bachini"})
+        listareceita = Cache().getReceita(context = this@ListadeReceitas)
+//        var listareceita: ArrayList<Receita> = arrayListOf<Receita>()
+//        listareceita.add(Receita().apply { this.titulo = "banana"
+//        this.autor = "Karen Bachini"})
+//        listareceita.add(Receita().apply { this.titulo = "chocolate"
+//            this.autor = "Karen Bachini"})
+//        listareceita.add(Receita().apply { this.titulo = "insulina"
+//            this.autor = "Karen Bachini"})
         val ReceitaAdapter = ReceitaAdapter(this,this.baseContext, listareceita)
         val linearLayoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        var RecyclerReceita: RecyclerView = findViewById(R.id.lista)
-        RecyclerReceita.layoutManager = linearLayoutManager
-        RecyclerReceita.adapter = ReceitaAdapter
+        RecyclerReceita = findViewById(R.id.lista)
+        RecyclerReceita?.layoutManager = linearLayoutManager
+        RecyclerReceita?.adapter = ReceitaAdapter
+
 
         var btnshow: FloatingActionButton = findViewById(R.id.btnshow)
         var btncadlista: FloatingActionButton = findViewById(R.id.btncadlista)
@@ -81,7 +85,14 @@ class ListadeReceitas : AppCompatActivity() {
         
 
     }
+
+    override fun onResume() {
+        super.onResume()
+        listareceita = Cache().getReceita(context = this@ListadeReceitas)
+        RecyclerReceita?.adapter = ReceitaAdapter(this,this.baseContext, listareceita)
+    }
 }
+
 class ReceitaAdapter(private val activity: ListadeReceitas, private val context: Context, private val lista: ArrayList<Receita>) :
     RecyclerView.Adapter<ReceitaAdapter.ViewHolder>() {
 
