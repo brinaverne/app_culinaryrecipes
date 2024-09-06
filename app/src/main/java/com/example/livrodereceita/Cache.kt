@@ -23,4 +23,16 @@ class Cache {
         return if(getlista.isNullOrEmpty()) arrayListOf<Receita>() else Gson().fromJson<ArrayList<Receita>>(getlista, type)
     }
 
+    fun countid(context: Context):Long{
+        val lista = getReceita(context)
+        return (lista.size + 1).toLong()
+    }
+
+    fun id(context: Context, iditem:Long):Receita?{
+        val lista = getReceita(context)
+        return lista.firstOrNull{
+            it.id == iditem
+        }
+    }
+
 }

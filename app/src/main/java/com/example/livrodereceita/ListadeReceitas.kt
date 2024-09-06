@@ -35,7 +35,16 @@ class ListadeReceitas : AppCompatActivity() {
 //            this.autor = "Karen Bachini"})
 //        listareceita.add(Receita().apply { this.titulo = "insulina"
 //            this.autor = "Karen Bachini"})
-        val ReceitaAdapter = ReceitaAdapter(this,this.baseContext, listareceita)
+        val ReceitaAdapter = object: ReceitaAdapter(this,this.baseContext, listareceita){
+            override fun deletarreceita(id: Long?) {
+                var listacache = Cache().getReceita(this@ListadeReceitas)
+                listacache.removeIf{
+                    it.id == id
+                }
+                Cache().setReceita(this@ListadeReceitas, listacache)
+                listareceita = listacache
+            }
+        }
         val linearLayoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         RecyclerReceita = findViewById(R.id.lista)
         RecyclerReceita?.layoutManager = linearLayoutManager
@@ -50,38 +59,40 @@ class ListadeReceitas : AppCompatActivity() {
         btnaltlista.visibility = View.INVISIBLE
         btncadlista.visibility = View.INVISIBLE
         btndellista.visibility = View.INVISIBLE
-        var count: Int = 0
+        //var count: Int = 0
         btnshow.setOnClickListener {
-            count++
-
-            if (count % 2 == 0){
-                btnaltlista.visibility = View.INVISIBLE
-                btncadlista.visibility = View.INVISIBLE
-                btndellista.visibility = View.INVISIBLE
-            }
-            else{
-
-                btnaltlista.visibility = View.VISIBLE
-                btncadlista.visibility = View.VISIBLE
-                btndellista.visibility = View.VISIBLE
-            }
-        }
-
-        btncadlista.setOnClickListener {
             var passatela = Intent(this, Add_receita::class.java)
             startActivity(passatela)
+            //count++
 
-        }
-        btnaltlista.setOnClickListener {
-            var passatela = Intent(this, Add_receita::class.java)
-            startActivity(passatela)
+            //if (count % 2 == 0){
+                //btnaltlista.visibility = View.INVISIBLE
+                //btncadlista.visibility = View.INVISIBLE
+                //btndellista.visibility = View.INVISIBLE
+            //}
+            //else{
 
+                //btnaltlista.visibility = View.VISIBLE
+                //btncadlista.visibility = View.VISIBLE
+                //btndellista.visibility = View.VISIBLE
+            //}
         }
-        btndellista.setOnClickListener {
-            var passatela = Intent(this, Add_receita::class.java)
-            startActivity(passatela)
 
-        }
+        //btncadlista.setOnClickListener {
+            //var passatela = Intent(this, Add_receita::class.java)
+            //startActivity(passatela)
+
+        //}
+       // btnaltlista.setOnClickListener {
+            // passatela = Intent(this, Add_receita::class.java)
+            //startActivity(passatela)
+
+        //}
+        //btndellista.setOnClickListener {
+            //var passatela = Intent(this, Add_receita::class.java)
+            //startActivity(passatela)
+
+        //}
         
 
     }
@@ -89,12 +100,18 @@ class ListadeReceitas : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         listareceita = Cache().getReceita(context = this@ListadeReceitas)
-        RecyclerReceita?.adapter = ReceitaAdapter(this,this.baseContext, listareceita)
+        (RecyclerReceita?.adapter as ReceitaAdapter)?.attlista(listareceita)
+        (RecyclerReceita?.adapter as ReceitaAdapter)?.notifyDataSetChanged()
+        //RecyclerReceita?.adapter = ReceitaAdapter(this,this.baseContext, listareceita)
     }
 }
 
-class ReceitaAdapter(private val activity: ListadeReceitas, private val context: Context, private val lista: ArrayList<Receita>) :
+abstract class ReceitaAdapter(private val activity: ListadeReceitas, private val context: Context, private var lista: ArrayList<Receita>) :
     RecyclerView.Adapter<ReceitaAdapter.ViewHolder>() {
+    abstract fun deletarreceita(id:Long?)
+     fun attlista(listadeReceitas: ArrayList<Receita>){
+         lista = listadeReceitas
+     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReceitaAdapter.ViewHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.cardview_lista_receita, parent, false)
@@ -107,7 +124,7 @@ class ReceitaAdapter(private val activity: ListadeReceitas, private val context:
         holder.titulo.setText(model.titulo)
         holder.autor.setText("Autor: " + model.autor)
         holder.card.setOnClickListener {
-            activity.startActivity (Intent(context, Add_receita::class.java))
+            activity.startActivity (Intent(context, Add_receita::class.java).putExtra("id", model.id))
         }
         holder.card.setOnLongClickListener(object : View.OnLongClickListener {
             override fun onLongClick(v: View?): Boolean {
@@ -115,7 +132,12 @@ class ReceitaAdapter(private val activity: ListadeReceitas, private val context:
                 .setMessage("Tem certeza que deseja deletar?")
                 .setPositiveButton("Sim", object: DialogInterface.OnClickListener{
                     override fun onClick(dialog: DialogInterface?, which: Int) {
+                        deletarreceita(model.id)
 
+                        Toast.makeText(context, "Removido com sucesso", Toast.LENGTH_LONG).show()
+                        dialog?.dismiss()
+                        lista.removeAt(position)
+                        notifyItemRemoved(position)
                     }
 
                 })

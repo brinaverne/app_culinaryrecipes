@@ -19,9 +19,9 @@
         android:padding="10dp">
 
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/lamen"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/miojo"
             >
 
         </ImageView>
@@ -35,9 +35,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tituloreceita"
-                android:fontFamily="@font/delicious_curls"
+                android:fontFamily="@font/birdsofparadise"
                 android:textStyle="bold"
                 tool:text="teste da lolo masterchef"
+                android:textSize="17sp"
                 >
 
             </TextView>
@@ -46,9 +47,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/autorreceita"
-                android:fontFamily="@font/delicious_curls"
+                android:fontFamily="@font/birdsofparadise"
                 android:textStyle="bold"
-                tool:text="teste da lolo masterchef">
+                tool:text="teste da lolo masterchef"
+                android:textSize="17sp">
 
             </TextView>
 

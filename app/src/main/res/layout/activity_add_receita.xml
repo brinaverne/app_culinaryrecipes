@@ -6,134 +6,157 @@
     android:layout_height="match_parent"
     tools:context=".Add_receita"
     android:orientation="vertical"
-    android:background="@color/amarelopastel">
+    android:background="@color/amarelopastel"
+    android:paddingHorizontal="40dp"
+    android:paddingTop="40dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="40dp">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/delicious_curls"
-        android:text="Cadastro de Receita"
-        android:layout_gravity="center"
-        android:textStyle="bold"
-        android:textSize="22dp"
-        android:textColor="@color/white">
-
-    </TextView>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/delicious_curls"
-        android:textStyle="bold"
-        android:text="Título da Receita:"
-        android:layout_marginTop="20dp"
-        android:textColor="@color/white"
-        android:textSize="17dp">
-
-    </TextView>
-
-    <EditText
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/titulo"
-        android:textColor="@color/black"
-        android:background="@color/white"
-        android:fontFamily="@font/delicious_curls"
-        android:textStyle="bold">
+        android:orientation="vertical">
 
-    </EditText>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="740dp"
+            android:orientation="vertical"
+            >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/delicious_curls"
-        android:textStyle="bold"
-        android:text="Ingredientes:"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/white"
-        android:textSize="17dp"
-        >
+            <TextView
+                android:id="@+id/activitytitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/birdsofparadise"
+                android:text="Cadastro de Receita"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold">
 
-    </TextView>
+            </TextView>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ingredientes"
-        android:textColor="@color/black"
-        android:background="@color/white"
-        android:fontFamily="@font/delicious_curls"
-        android:textStyle="bold">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:fontFamily="@font/birdsofparadise"
+                android:text="Título da Receita:"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold">
 
-    </EditText>
+            </TextView>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Passo a Passo:"
-        android:fontFamily="@font/delicious_curls"
-        android:textStyle="bold"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/white"
-        android:textSize="17dp"
-        >
+            <EditText
+                android:id="@+id/titulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:fontFamily="@font/birdsofparadise"
+                android:textColor="@color/black"
+                android:textStyle="bold">
 
-    </TextView>
+            </EditText>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:id="@+id/passos"
-        android:background="@color/white"
-        android:fontFamily="@font/delicious_curls"
-        android:textStyle="bold">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/birdsofparadise"
+                android:text="Ingredientes:"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold">
 
-    </EditText>
+            </TextView>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/delicious_curls"
-        android:textStyle="bold"
-        android:text="Autor da Receita:"
-        android:textColor="@color/white"
-        android:layout_marginTop="10dp"
-        android:textSize="17dp"
-        >
+            <EditText
+                android:id="@+id/ingredientes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:fontFamily="@font/birdsofparadise"
+                android:textColor="@color/black"
+                android:textStyle="bold">
 
-    </TextView>
+            </EditText>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/autor"
-        android:background="@color/white"
-        android:fontFamily="@font/delicious_curls"
-        android:textColor="@color/black"
-        android:textStyle="bold">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/birdsofparadise"
+                android:text="Passo a Passo:"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold">
 
-    </EditText>
+            </TextView>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cadastrar"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/delicious_curls"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:id="@+id/btntlcadastro">
+            <EditText
+                android:id="@+id/passos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:fontFamily="@font/birdsofparadise"
+                android:textColor="@color/black"
+                android:textStyle="bold">
 
-        </Button>
+            </EditText>
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/birdsofparadise"
+                android:text="Autor da Receita:"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/autor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:fontFamily="@font/birdsofparadise"
+                android:textColor="@color/black"
+                android:textStyle="bold">
+
+            </EditText>
+
+            <Button
+                android:id="@+id/btntlcadastro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/birdsofparadise"
+                android:text="Cadastrar"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="18sp">
+
+            </Button>
+
+
+        </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="end|bottom"
+            android:backgroundTint="@color/roxopastel"
+            app:tint="@color/white"
+            app:fabCustomSize="60dp"
+            app:shapeAppearanceOverlay="@style/Widget.Design.FloatingActionButton"
+            android:id="@+id/btnalt"
+            android:src="@android:drawable/ic_menu_edit"
+            android:layout_marginBottom="40dp">
+        </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
 </ScrollView>

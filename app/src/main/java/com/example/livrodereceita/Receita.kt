@@ -5,4 +5,5 @@ class Receita {
     var autor: String?=null
     var passos: String?=null
     var ingredientes: String?=null
+    var id: Long?=null
 }
