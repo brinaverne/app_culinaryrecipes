@@ -51,7 +51,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:fontFamily="@font/birdsofparadise"
                 android:textColor="@color/black"
                 android:textStyle="bold">
 
@@ -74,7 +73,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:fontFamily="@font/birdsofparadise"
                 android:textColor="@color/black"
                 android:textStyle="bold">
 
@@ -97,7 +95,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:fontFamily="@font/birdsofparadise"
                 android:textColor="@color/black"
                 android:textStyle="bold">
 
@@ -120,7 +117,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:fontFamily="@font/birdsofparadise"
                 android:textColor="@color/black"
                 android:textStyle="bold">
 

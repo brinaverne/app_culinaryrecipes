@@ -7,6 +7,10 @@ import com.google.gson.reflect.TypeToken
 class Cache {
     private val PREF_ID = "receita_cache"
 
+    /**
+     * Função que salva a lista de receitas no cache
+     * @param listaCache Lista contendo todas as receitas para armazenar no cache
+     */
     fun setReceita(context: Context, listaCache: ArrayList<Receita>){
         val editor = context.getSharedPreferences(PREF_ID, 0).edit()
 
