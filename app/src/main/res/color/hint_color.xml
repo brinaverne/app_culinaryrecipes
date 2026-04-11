@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- FOCADO -->
+    <item android:color="@color/lilas_palette" android:state_focused="true"/>
+
+    <!-- NORMAL -->
+    <item android:color="@color/lilas_palette"/>
+
+</selector>

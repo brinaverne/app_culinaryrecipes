@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="titleFontStyle">
+        <item name="android:fontFamily">@font/kgprimarypenmanship</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black_palette</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:layout_gravity">top|center</item>
+
+    </style>
+
+    <style name="textFontStyle">
+        <item name="android:fontFamily">@font/kgprimarypenmanship</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/darkyellow_palette2</item>
+        <item name="android:textSize">22sp</item>
+
+    </style>
+
+    <style name="buttonTextFontStyle">
+        <item name="android:fontFamily">@font/kgprimarypenmanship</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+
+    </style>
+
+    <style name="roundedButtonShape">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="MyPopupMenuStyle" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:popupBackground">@color/lilas_palette</item>
+
+    </style>
+
+
+
+</resources>

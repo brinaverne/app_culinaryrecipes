@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".view.MainActivity"
     android:padding="40dp"
     android:orientation="vertical"
     android:background="@color/amarelopastel">
@@ -14,16 +14,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Livro de Receitas"
-        android:layout_gravity="center"
-        android:textSize="25sp"
-        android:fontFamily="@font/birdsofparadise"
-        android:textStyle="bold"
-        android:textColor="@color/white"/>
+        style="@style/titleFontStyle"/>
 
     <ImageView
         android:layout_width="230dp"
         android:layout_height="348dp"
-        android:src="@drawable/amassa"
+        android:src="@drawable/amassa_v2"
         android:layout_gravity="center"/>
 
     <TextView
@@ -31,28 +27,24 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="O Segredo  Nunca Foi o Amor,"
-        android:fontFamily="@font/birdsofparadise"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:textSize="18sp"/>
+        style="@style/textFontStyle"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Mas sim o Ódio!"
-        android:fontFamily="@font/birdsofparadise"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:textSize="18sp"/>
+        style="@style/textFontStyle"/>
 
-    <ImageButton
-        android:layout_width="60dp"
+    <Button
+        android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:layout_gravity="end"
-        android:layout_marginTop="150dp"
-        android:src="@android:drawable/ic_media_play"
+        android:layout_gravity="center"
+        android:text="@string/activity_main_entrar"
+        android:layout_marginTop="22dp"
         android:id="@+id/btntlinicial"
+        style="@style/buttonTextFontStyle"
+        app:shapeAppearance="@style/roundedButtonShape"
         android:backgroundTint="@color/roxopastel"
         />
 

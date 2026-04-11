@@ -6,4 +6,12 @@
     <color name="verdepastel">#67BA07</color>
     <color name="roxopastel">#AC64CA</color>
     <color name="lilas">#CAB1DA</color>
+    <color name="lightlilas">#D3C4DD</color>
+    <color name="lilas_palette">#BB88DA</color>
+    <color name="black_palette">#4B4B48</color>
+    <color name="lightblack_palette">#6E6D6A</color>
+    <color name="darkyellow_palette">#544A27</color>
+    <color name="darkyellow_palette2">#7A6C3C</color>
+    <color name="lightblue_palette">#91A9F6</color>
+    <color name="darkblue_palette">#09204A</color>
 </resources>

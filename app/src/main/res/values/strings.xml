@@ -1,3 +1,35 @@
 <resources>
     <string name="app_name">Livro de Receita</string>
+    <string name="activity_main_entrar">Entrar</string>
+    <string name="nao">Não</string>
+    <string name="sim">Sim</string>
+    <string name="campos_vazios">Campos vazios</string>
+    <string name="alterado_com_sucesso">Receita Alterada com Sucesso</string>
+    <string name="cadastrado_com_sucesso">Receita Cadastrada com Sucesso</string>
+    <string name="removido_mensagem">Removido com sucesso</string>
+    <string name="deseja_deletar">Tem certeza que deseja deletar?</string>
+    <string name="title_receitinhas_do_odio">Receitinhas do Ódio</string>
+    <string name="busque_sua_receita">Busque sua Receita</string>
+    <string name="cadastro_de_receita">Cadastro de Receita</string>
+    <string name="cadastrar_de_receita">Cadastrar Receita</string>
+    <string name="titulo_da_receita">Título da Receita:</string>
+    <string name="ingredientes">Ingredientes:</string>
+    <string name="passo_a_passo">Passo a Passo:</string>
+    <string name="autor_da_receita">Autor da Receita:</string>
+    <string name="autor_da_receita_card">Autor: %s</string>
+    <string name="alterar_receita">Alterar Receita</string>
+    <string name="gravar_receita">Gravar Receita</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="receita">Receita</string>
+    <string name="hint_title_batata_recheada">Ex: Batata Recheada</string>
+    <string name="hint_autor_receita">Ex: Margarida Receitas</string>
+    <string name="hint_passos_receita">Ex: Cozinhar as batatas e a carne separadamente e adicionar sal a gosto. Após o cozimento molde as batatas e adicione o recheio</string>
+    <string name="hint_ingrediente_receita">Ex: 8x Batatas, 1kg de carne e uma pitada de sal</string>
+    <string name="pesquisar_receitas">Pesquisar Receitas</string>
+    <string name="pesquisar_receitas_ia">Pesquisar Receitas (IA)</string>
+    <string name="pesquisar_receitas_gemini">Pesquisar Receitas Google Gemini IA</string>
+    <string name="mais_opcoes">Mais Opções</string>
+    <string name="pesquise_sua_receita">Pesquise sua Receita</string>
+    <string name="gemini">Gemini</string>
+    <string name="falha_pesquisa">Falha na pesquisa</string>
 </resources>
