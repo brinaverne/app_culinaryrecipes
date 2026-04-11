@@ -4,7 +4,8 @@
     xmlns:tool="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
+    android:layout_marginHorizontal="5dp"
+
     app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="8dp"
     app:cardPreventCornerOverlap="true"
@@ -35,24 +36,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tituloreceita"
-                android:fontFamily="@font/birdsofparadise"
+                android:fontFamily="@font/kgprimarypenmanship"
                 android:textStyle="bold"
                 tool:text="teste da lolo masterchef"
-                android:textSize="17sp"
-                >
+                android:textColor="@color/lightblack_palette"
+                android:textSize="18sp"
+                />
 
-            </TextView>
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/autorreceita"
-                android:fontFamily="@font/birdsofparadise"
+                android:fontFamily="@font/kgprimarypenmanship"
                 android:textStyle="bold"
                 tool:text="teste da lolo masterchef"
-                android:textSize="17sp">
+                android:textColor="@color/lightblack_palette"
+                android:textSize="18sp"
+                />
 
-            </TextView>
 
         </LinearLayout>
 

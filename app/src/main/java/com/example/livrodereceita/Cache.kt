@@ -1,6 +1,7 @@
 package com.example.livrodereceita
 
 import android.content.Context
+import com.example.livrodereceita.model.Receita
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
@@ -32,7 +33,7 @@ class Cache {
         return (lista.size + 1).toLong()
     }
 
-    fun id(context: Context, iditem:Long):Receita?{
+    fun id(context: Context, iditem:Long): Receita?{
         val lista = getReceita(context)
         return lista.firstOrNull{
             it.id == iditem

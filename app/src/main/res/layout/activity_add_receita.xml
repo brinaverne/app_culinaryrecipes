@@ -1,159 +1,279 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Add_receita"
+    tools:context=".view.Add_receita"
     android:orientation="vertical"
-    android:background="@color/amarelopastel"
-    android:paddingHorizontal="40dp"
-    android:paddingTop="40dp">
+    android:background="@color/amarelopastel">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar_add_receita"
+        android:background="@color/roxopastel"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:elevation="8dp">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/culinary_toolbar_logo"
+            app:tint="@color/white"
+            android:layout_marginBottom="15dp">
+
+        </ImageView>
+
+        <TextView
+            android:id="@+id/activitytitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/cadastro_de_receita"
+            style="@style/titleFontStyle"
+            android:textColor="@color/white"
+            android:layout_marginBottom="5dp"
+
+            />
+
+
+    </Toolbar>
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/amarelopastel"
+        android:layout_marginTop="25dp">
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            >
+            android:layout_marginTop="25dp">
 
-            <TextView
-                android:id="@+id/activitytitle"
-                android:layout_width="wrap_content"
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="310dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:fontFamily="@font/birdsofparadise"
-                android:text="Cadastro de Receita"
-                android:textColor="@color/white"
-                android:textSize="25sp"
-                android:textStyle="bold">
+                app:startIconDrawable="@drawable/ic_search"
+                app:startIconTint="@color/lilas_palette"
+                android:hint="@string/pesquisar_receitas_gemini"
+                app:boxBackgroundColor="@color/white"
+                android:layout_marginTop="15dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxStrokeColor="@color/outline_color"
+                app:hintTextColor="@color/hint_color"
+                android:textColorHint="@color/hint_color"
+                android:id="@+id/text_input_layout_pesquisar_receita"
+                android:layout_marginBottom="5dp"
+                android:visibility="gone"
+                tools:visibility="visible">
 
-            </TextView>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="@color/lightblack_palette"
+                    android:textSize="18sp"
+                    android:id="@+id/search_recipe"
+                    android:fontFamily="@font/kgprimarypenmanship"
+                    android:textStyle="bold"
+                    android:paddingStart="40dp"
+                    android:inputType="text"
+                    app:tint="@color/white">
+
+
+                </com.google.android.material.textfield.TextInputEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btn_pesquisar_receita"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/kgprimarypenmanship"
+                android:text="@string/pesquisar_receitas"
+                style="@style/buttonTextFontStyle"
+                app:shapeAppearance="@style/roundedButtonShape"
+                android:backgroundTint="@color/roxopastel"
+                android:tooltipText="@string/pesquisar_receitas"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+            </Button>
+
+
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20sp"
-                android:fontFamily="@font/birdsofparadise"
-                android:text="Título da Receita:"
-                android:textColor="@color/white"
+                android:layout_marginTop="25dp"
+                android:layout_marginHorizontal="45dp"
+                android:fontFamily="@font/kgprimarypenmanship"
+                android:text="@string/titulo_da_receita"
+                android:textColor="@color/lightblack_palette"
                 android:textSize="18sp"
-                android:textStyle="bold">
+                android:textStyle="bold"/>
 
-            </TextView>
 
             <EditText
                 android:id="@+id/titulo"
-                android:layout_width="match_parent"
+                android:layout_width="310dp"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:textColor="@color/black"
-                android:textStyle="bold">
+                android:background="@drawable/round_edit_text"
+                android:textColor="@color/lightblack_palette"
+                android:textStyle="bold"
+                android:fontFamily="@font/kgprimarypenmanship"
+                android:layout_gravity="center"
+                android:hint="@string/hint_title_batata_recheada"
+                android:textColorHint="@color/lightlilas"
+                android:inputType="textMultiLine"
+                android:justificationMode="inter_word"/>
 
-            </EditText>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/birdsofparadise"
-                android:text="Ingredientes:"
-                android:textColor="@color/white"
+                android:fontFamily="@font/kgprimarypenmanship"
+                android:text="@string/ingredientes"
+                android:textColor="@color/lightblack_palette"
                 android:textSize="18sp"
-                android:textStyle="bold">
+                android:textStyle="bold"
+                android:layout_marginHorizontal="45dp"/>
 
-            </TextView>
 
             <EditText
                 android:id="@+id/ingredientes"
-                android:layout_width="match_parent"
+                android:layout_width="310dp"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:textColor="@color/black"
-                android:textStyle="bold">
+                android:background="@drawable/round_edit_text"
+                android:textColor="@color/lightblack_palette"
+                android:textStyle="bold"
+                android:fontFamily="@font/kgprimarypenmanship"
+                android:layout_gravity="center"
+                android:hint="@string/hint_ingrediente_receita"
+                android:textColorHint="@color/lightlilas"
+                android:inputType="textMultiLine"
+                android:scrollHorizontally="false"
+                android:breakStrategy="high_quality"
+                android:hyphenationFrequency="normal"
+                android:justificationMode="inter_word"
+                android:gravity="start"/>
 
-            </EditText>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/birdsofparadise"
-                android:text="Passo a Passo:"
-                android:textColor="@color/white"
+                android:fontFamily="@font/kgprimarypenmanship"
+                android:text="@string/passo_a_passo"
+                android:textColor="@color/lightblack_palette"
                 android:textSize="18sp"
-                android:textStyle="bold">
+                android:textStyle="bold"
+                android:layout_marginHorizontal="45dp"/>
 
-            </TextView>
+
 
             <EditText
                 android:id="@+id/passos"
-                android:layout_width="match_parent"
+                android:layout_width="310dp"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:textColor="@color/black"
-                android:textStyle="bold">
+                android:background="@drawable/round_edit_text"
+                android:textColor="@color/lightblack_palette"
+                android:textStyle="bold"
+                android:fontFamily="@font/kgprimarypenmanship"
+                android:layout_gravity="center"
+                android:hint="@string/hint_passos_receita"
+                android:textColorHint="@color/lightlilas"
+                android:gravity="start"
+                android:inputType="textMultiLine"
+                android:scrollHorizontally="false"
+                android:breakStrategy="high_quality"
+                android:hyphenationFrequency="normal"
+                android:justificationMode="inter_word"/>
 
-            </EditText>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/birdsofparadise"
-                android:text="Autor da Receita:"
-                android:textColor="@color/white"
+                android:fontFamily="@font/kgprimarypenmanship"
+                android:text="@string/autor_da_receita"
+                android:textColor="@color/lightblack_palette"
                 android:textSize="18sp"
-                android:textStyle="bold">
+                android:textStyle="bold"
+                android:layout_marginHorizontal="45dp"
+                />
 
-            </TextView>
 
             <EditText
                 android:id="@+id/autor"
-                android:layout_width="match_parent"
+                android:layout_width="310dp"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:textColor="@color/black"
-                android:textStyle="bold">
+                android:background="@drawable/round_edit_text"
+                android:textColor="@color/lightblack_palette"
+                android:textStyle="bold"
+                android:fontFamily="@font/kgprimarypenmanship"
+                android:layout_gravity="center"
+                android:hint="@string/hint_autor_receita"
+                android:textColorHint="@color/lightlilas"
+                android:inputType="textMultiLine"
+                android:justificationMode="inter_word"/>
 
-            </EditText>
 
             <Button
                 android:id="@+id/btntlcadastro"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:fontFamily="@font/birdsofparadise"
-                android:text="Cadastrar"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:textSize="18sp">
+                android:layout_marginTop="22dp"
+                android:layout_marginBottom="40dp"
+                android:fontFamily="@font/kgprimarypenmanship"
+                android:text="@string/gravar_receita"
+                style="@style/buttonTextFontStyle"
+                app:shapeAppearance="@style/roundedButtonShape"
+                android:backgroundTint="@color/roxopastel"
+                android:tooltipText="@string/gravar_receita">
 
             </Button>
 
 
         </LinearLayout>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_gravity="end|bottom"
-            android:backgroundTint="@color/roxopastel"
-            app:tint="@color/white"
-            app:fabCustomSize="60dp"
-            app:shapeAppearanceOverlay="@style/Widget.Design.FloatingActionButton"
-            android:id="@+id/btnalt"
-            android:src="@android:drawable/ic_menu_edit"
-            android:layout_marginBottom="40dp">
-        </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </ScrollView>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="end|bottom"
+        android:backgroundTint="@color/roxopastel"
+        app:tint="@color/white"
+        app:fabCustomSize="60dp"
+        app:shapeAppearanceOverlay="@style/Widget.Design.FloatingActionButton"
+        android:id="@+id/btnalt"
+        android:src="@android:drawable/ic_menu_edit"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="40dp"
+        android:tooltipText="@string/alterar_receita">
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
