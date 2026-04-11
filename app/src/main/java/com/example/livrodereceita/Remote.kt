@@ -32,7 +32,7 @@ class Remote {
         })
 
         try {
-            header.put(geminiKey, geminiValue)
+            header.put(HandleGemini.geminiKey, HandleGemini.geminiValue)
             val apiResponse = HttpHelper().geminiReceitaPostRequest(url, header, Gson().toJson(receitaBodyRequest))
             response?.objeto = apiResponse
             response?.success = true
