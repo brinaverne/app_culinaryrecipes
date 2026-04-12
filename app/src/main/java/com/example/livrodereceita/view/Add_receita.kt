@@ -145,6 +145,7 @@ class Add_receita : AppCompatActivity() {
 
         btnPequisar.setOnClickListener {
             viewModel.searchReceitaViaGemini(inputTextPesquisarReceita.text.toString())
+            //viewModel.searchReceitaViaGeminiMock(inputTextPesquisarReceita.text.toString())
             alertDialogLoaging(this@Add_receita, true)
         }
 

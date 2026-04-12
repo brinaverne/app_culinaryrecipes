@@ -7,12 +7,16 @@ import okhttp3.MediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody
+import java.util.concurrent.TimeUnit
 
 class HttpHelper {
 
     fun geminiReceitaPostRequest(url: String, headers: Map<String, String>?, jsonBody: String): ReceitaResponse {
         val client = OkHttpClient.Builder()
         val requestBuilder = Request.Builder()
+        client.connectTimeout(60L, TimeUnit.SECONDS)
+        client.readTimeout(60L, TimeUnit.SECONDS)
+        client.callTimeout(60L, TimeUnit.SECONDS)
 
         headers?.let {
             headers.forEach { header ->
