@@ -11,8 +11,6 @@ import com.google.gson.Gson
 class Remote {
 
     val apiBaseUrl = "https://generativelanguage.googleapis.com/v1beta"
-    val geminiKey = "x-goog-api-key"
-    val geminiValue = "AIzaSyDWfOn75JRB6j6pCnl1ZHL8pzsT4D643Pc"
 
     fun searchReceitaViaGemini(receita: String): GenericResponse<ReceitaResponse>? {
         var response: GenericResponse<ReceitaResponse>? = GenericResponse<ReceitaResponse>()
